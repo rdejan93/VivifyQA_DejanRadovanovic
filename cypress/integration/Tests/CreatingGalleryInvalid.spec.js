@@ -24,7 +24,7 @@ context('Testing Creating Gallery with invalid data on GalleryApp', () => {
 
     it('Testing Creating Gallery with no fields entered', () => {
         cy.get(locators.Create.Submit).eq(0).click();
-        cy.get('[id="title"]').then(($input) => {
+        cy.get(locators.Create.Title).then(($input) => {
             expect($input[0].validationMessage).to.eq('Please fill out this field.');
         })
     })
@@ -32,7 +32,7 @@ context('Testing Creating Gallery with invalid data on GalleryApp', () => {
     it('Testing Creating Gallery with only title entered', () => {
         cy.get(locators.Create.Title).type(title);
         cy.get(locators.Create.Submit).eq(0).click();
-        cy.get('[class="form-control"]').then(($input) => {
+        cy.get(locators.Create.Images).then(($input) => {
             expect($input[2].validationMessage).to.eq('Please fill out this field.');
         })
     })
@@ -40,7 +40,7 @@ context('Testing Creating Gallery with invalid data on GalleryApp', () => {
     it('Testing Creating Gallery with only description entered', () => {
         cy.get(locators.Create.Description).type(description);
         cy.get(locators.Create.Submit).eq(0).click();
-        cy.get('[id="title"]').then(($input) => {
+        cy.get(locators.Create.Title).then(($input) => {
             expect($input[0].validationMessage).to.eq('Please fill out this field.');
         })
     })
@@ -48,7 +48,7 @@ context('Testing Creating Gallery with invalid data on GalleryApp', () => {
     it('Testing Creating Gallery with only image entered', () => {
         cy.get(locators.Create.Images).eq(2).type(image1);
         cy.get(locators.Create.Submit).eq(0).click();
-        cy.get('[id="title"]').then(($input) => {
+        cy.get(locators.Create.Title).then(($input) => {
             expect($input[0].validationMessage).to.eq('Please fill out this field.');
         })
     })
@@ -57,7 +57,7 @@ context('Testing Creating Gallery with invalid data on GalleryApp', () => {
         cy.get(locators.Create.Title).type(title);
         cy.get(locators.Create.Description).type(description);
         cy.get(locators.Create.Submit).eq(0).click();
-        cy.get('[class="form-control"]').then(($input) => {
+        cy.get(locators.Create.Images).then(($input) => {
             expect($input[2].validationMessage).to.eq('Please fill out this field.');
         })
     })
@@ -66,7 +66,7 @@ context('Testing Creating Gallery with invalid data on GalleryApp', () => {
         cy.get(locators.Create.Description).type(description);
         cy.get(locators.Create.Images).eq(2).type(image1);
         cy.get(locators.Create.Submit).eq(0).click();
-        cy.get('[id="title"]').then(($input) => {
+        cy.get(locators.Create.Title).then(($input) => {
             expect($input[0].validationMessage).to.eq('Please fill out this field.');
         })
     })
@@ -76,7 +76,7 @@ context('Testing Creating Gallery with invalid data on GalleryApp', () => {
         cy.get(locators.Create.Description).type(description);
         cy.get(locators.Create.Images).eq(2).type(title);
         cy.get(locators.Create.Submit).eq(0).click();
-        cy.get('[class="form-control"]').then(($input) => {
+        cy.get(locators.Create.Images).then(($input) => {
             expect($input[2].validationMessage).to.eq('Please enter a URL.');
         })
     })
@@ -89,7 +89,7 @@ context('Testing Creating Gallery with invalid data on GalleryApp', () => {
         cy.get(locators.Create.Alert).should('exist').and('have.text', 'Wrong format of image')
     })
 
-    afterEach('Clear cash', () => {
+    afterEach('Clear cache', () => {
         cy.clearLocalStorage();
     })
 

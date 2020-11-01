@@ -30,6 +30,16 @@
         "SearchBar": ".form-control",
         "NavBarBtns": ".nav-link",
         "GalleryTitle": ".box-title",
-        "Filter": ".btn"
+        "Filter": ".btn",
+        "Message": ".container>div>div"
+    },
+    "SwappingImages": {
+        "NavBarBtns": ".nav-link",
+        "GalleryTitle": ".box-title",
+        "SwapBtn": ".input-buttons",
+        "Button": ".btn",
+        "IMAGES": ".form-control",
+        "SlideBtn1": "#carousel___BV_indicator_1_",
+        "SlideImage": ".d-block"
     }
 }

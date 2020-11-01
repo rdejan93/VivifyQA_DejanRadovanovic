@@ -41,7 +41,7 @@ context('Testing Deleting images from gallery', () => {
         cy.wait(500);
     })
 
-    afterEach('Deleting gallery and cash', () => {
+    afterEach('Deleting gallery and cache', () => {
         cy.DeleteGallery();
         cy.clearLocalStorage();
     })

@@ -26,7 +26,7 @@ context('Testing Deleting Gallery on GalleryApp', () => {
         cy.get(locators.DeleteGallery.DeleteBtn).eq(0).click();
     })
 
-    after('Clear cash', () => {
+    after('Clear cache', () => {
         cy.clearLocalStorage();
     })
 

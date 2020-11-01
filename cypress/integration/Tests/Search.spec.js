@@ -16,11 +16,18 @@ context('Testing Search on GalleryApp', () => {
     })
 
 
-    it('Searching for existing gallerie', () => {
+    it('Searching for existing gallery', () => {
         cy.get(locators.Search.SearchBar).type(title);
         cy.get(locators.Search.Filter).eq(0).click();
         cy.wait(1000);
         cy.get(locators.Search.GalleryTitle).eq(0).should('include.text', title);
+    })
+
+    it('Searching for non-existing gallery', () => {
+        cy.get(locators.Search.SearchBar).type('Dejan Radovanovic');
+        cy.get(locators.Search.Filter).eq(0).click();
+        cy.wait(1000);
+        cy.get(locators.Search.Message).should('include.text', 'No galleries found')
     })
 
     after('Deleting Gallerie', () => {

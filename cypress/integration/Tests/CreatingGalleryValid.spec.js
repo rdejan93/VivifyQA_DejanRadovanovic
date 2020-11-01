@@ -58,7 +58,7 @@ context('Testing Creating Gallery as a user', () => {
     })
 })
 
-afterEach('Deleting Gallery and cash', () => {
+afterEach('Deleting Gallery and cache', () => {
     cy.DeleteGallery();
     cy.clearLocalStorage();
 })
