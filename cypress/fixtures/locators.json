@@ -1,0 +1,35 @@
+{
+    "Login": {
+        "Email": "#email",
+        "Password": "#password",
+        "Submit": ".btn"
+    },
+    "Create": {
+        "NavBarBtns": ".nav-link",
+        "Title": "#title",
+        "Description": "#description",
+        "Images": ".form-control",
+        "AddImageBtn": "button",
+        "Submit": ".btn",
+        "Alert": ".alert"
+    },
+    "DeleteGallery": {
+        "NavBarBtns": ".nav-link",
+        "GalleryTitle": ".box-title",
+        "GalleryPageTitle": ".title-style",
+        "DeleteBtn": ".btn"
+    },
+    "DeleteImage": {
+        "NavBarBtns": ".nav-link",
+        "GalleryTitle": ".box-title",
+        "EditBtn": ".btn",
+        "DeleteImageBtn": ".input-buttons",
+        "Submit": ".btn"
+    },
+    "Search": {
+        "SearchBar": ".form-control",
+        "NavBarBtns": ".nav-link",
+        "GalleryTitle": ".box-title",
+        "Filter": ".btn"
+    }
+}
