@@ -30,9 +30,8 @@ context('Testing Search on GalleryApp', () => {
         cy.get(locators.Search.Message).should('include.text', 'No galleries found')
     })
 
-    after('Deleting Gallerie', () => {
-        cy.DeleteGallery(title);
+    afterEach('Deleting gallery and cache', () => {
+        cy.DeleteGallery();
         cy.clearLocalStorage();
     })
-
 })

@@ -13,11 +13,12 @@
         "Submit": ".btn",
         "Alert": ".alert"
     },
-    "DeleteGallery": {
+    "Search": {
+        "SearchBar": ".form-control",
         "NavBarBtns": ".nav-link",
         "GalleryTitle": ".box-title",
-        "GalleryPageTitle": ".title-style",
-        "DeleteBtn": ".btn"
+        "Filter": ".btn",
+        "Message": ".container>div>div"
     },
     "DeleteImage": {
         "NavBarBtns": ".nav-link",
@@ -26,12 +27,21 @@
         "DeleteImageBtn": ".input-buttons",
         "Submit": ".btn"
     },
-    "Search": {
-        "SearchBar": ".form-control",
+    "Comment": {
         "NavBarBtns": ".nav-link",
         "GalleryTitle": ".box-title",
-        "Filter": ".btn",
-        "Message": ".container>div>div"
+        "TextArea": ".form-group",
+        "Submit": ".btn",
+        "DeleteBtn": ".list-group>.list-group-item>div>button",
+        "Alert": ".alert",
+        "SearchBar": ".form-control",
+        "ValidComment": ".list-group-item"
+    },
+    "DeleteGallery": {
+        "NavBarBtns": ".nav-link",
+        "GalleryTitle": ".box-title",
+        "GalleryPageTitle": ".title-style",
+        "DeleteBtn": ".btn"
     },
     "SwappingImages": {
         "NavBarBtns": ".nav-link",

@@ -2,8 +2,9 @@
 
 let locators = require('../../fixtures/locators.json');
 let user = require('../../fixtures/user.json');
+import { authDelete } from '../../page_object/DeletingGalleryObject.js'
 
-context('Testing Deleting Gallery on GalleryApp', () => {
+context('Testing Deleting Gallery with page object model on GalleryApp', () => {
 
     let title = 'Title';
     let description = 'Description';
@@ -16,14 +17,8 @@ context('Testing Deleting Gallery on GalleryApp', () => {
         cy.CreatingGalleryBackend(title, description, image1, image2)
     })
 
-    it('Deleting Gallery as a user', () => {
-        cy.server();
-        cy.route('https://gallery-api.vivifyideas.com/api/my-galleries?page=1&term=').as('load');
-        cy.get(locators.DeleteGallery.NavBarBtns).eq(1).click();
-        cy.wait('@load');
-        cy.get(locators.DeleteGallery.GalleryTitle).eq(0).click();
-        cy.get(locators.DeleteGallery.GalleryPageTitle).should('have.text', title);
-        cy.get(locators.DeleteGallery.DeleteBtn).eq(0).click();
+    it('Deleting Gallery with POM', () => {
+        authDelete.deleteGallery()
     })
 
     after('Clear cache', () => {

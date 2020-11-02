@@ -94,6 +94,19 @@ Cypress.Commands.add('CreatingGalleryBackend', (title, description, image1, imag
 
 })
 
+Cypress.Commands.add('AddingComment', (title, comment) => {
+
+    const locators = require('../fixtures/locators.json');
+
+    cy.get(locators.Comment.SearchBar).type(title);
+    cy.get(locators.Comment.Submit).eq(0).click();
+    cy.wait(500);
+    cy.get(locators.Comment.GalleryTitle).eq(0).click();
+    cy.wait(500);
+    cy.get(locators.Comment.TextArea).type(comment);
+    cy.get(locators.Comment.Submit).eq(0).click();
+    cy.visit('/');
+})
 Cypress.Commands.add('DeleteGallery', () => {
 
     const locators = require('../fixtures/locators.json');
