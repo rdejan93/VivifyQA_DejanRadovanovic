@@ -12,7 +12,6 @@ context('Testing Creating Gallery with invalid data on GalleryApp', () => {
 
 
     beforeEach('Login', () => {
-
         cy.Login(user.email, user.password);
         cy.visit('/create');
     })
@@ -22,7 +21,7 @@ context('Testing Creating Gallery with invalid data on GalleryApp', () => {
         cy.url().should('include', '/create');
     })
 
-    it.only('Testing Creating Gallery with no fields entered', () => {
+    it('Testing Creating Gallery with no fields entered', () => {
         cy.get(locators.Create.Submit).eq(0).click();
         cy.get(locators.Create.Title).then(($input) => {
             expect($input[0].validationMessage).to.eq('Please fill out this field.'); // Depending on what browser and OS is used, this test may fail

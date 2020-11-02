@@ -1,6 +1,5 @@
 /// <reference types="Cypress" />
 
-let locators = require('../../fixtures/locators.json');
 let user = require('../../fixtures/user.json');
 import { authDelete } from '../../page_object/DeletingGalleryObject.js'
 

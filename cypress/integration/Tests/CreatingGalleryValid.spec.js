@@ -22,6 +22,8 @@ context('Testing Creating Gallery as a user', () => {
         cy.server();
         cy.route('https://gallery-api.vivifyideas.com/api/galleries?page=1&term=').as('creatingGallery');
         cy.wait('@creatingGallery');
+        cy.visit('/my-galleries');
+        cy.get(locators.Create.GalleryTitle).eq(0).should('exist').and('include.text', title);
     })
 
     it('Creating Gallery with all fields entered', () => {
@@ -32,6 +34,8 @@ context('Testing Creating Gallery as a user', () => {
         cy.server();
         cy.route('https://gallery-api.vivifyideas.com/api/galleries?page=1&term=').as('creatingGallery');
         cy.wait('@creatingGallery');
+        cy.visit('/my-galleries');
+        cy.get(locators.Create.GalleryTitle).eq(0).should('exist').and('include.text', title);
     })
 
     it('Creating Gallery with title and two images', () => {
@@ -43,6 +47,8 @@ context('Testing Creating Gallery as a user', () => {
         cy.server();
         cy.route('https://gallery-api.vivifyideas.com/api/galleries?page=1&term=').as('creatingGallery');
         cy.wait('@creatingGallery');
+        cy.visit('/my-galleries');
+        cy.get(locators.Create.GalleryTitle).eq(0).should('exist').and('include.text', title);
     })
 
     it('Creating Gallery with title, description and two images', () => {
@@ -55,6 +61,8 @@ context('Testing Creating Gallery as a user', () => {
         cy.server();
         cy.route('https://gallery-api.vivifyideas.com/api/galleries?page=1&term=').as('creatingGallery');
         cy.wait('@creatingGallery');
+        cy.visit('/my-galleries');
+        cy.get(locators.Create.GalleryTitle).eq(0).should('exist').and('include.text', title);
     })
 })
 

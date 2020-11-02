@@ -15,6 +15,10 @@
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -114,7 +118,11 @@
 							"}); \r",
 							"pm.test(\"Response time is less than 500ms\", function () {\r",
 							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
-							"});"
+							"});\r",
+							"\r",
+							"const galleryID = JSON.parse(responseBody);\r",
+							"pm.environment.set(\"galleryID\", galleryID.id);\r",
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -155,6 +163,108 @@
 			"response": []
 		},
 		{
+			"name": "Adding comment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a20254c7-362d-4fc4-aeae-56466e6a2afd",
+						"exec": [
+							"const commentID = JSON.parse(responseBody);\r",
+							"pm.environment.set('commentID', commentID[0].id);\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"gallery_id\":{{galleryID}},\r\n    \"body\": \"asd\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/comments",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deleting comment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d2eefe16-c098-47ca-a728-fc985c74b227",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/comments/{{commentID}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"comments",
+						"{{commentID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Delete Gallery",
 			"event": [
 				{
@@ -164,6 +274,9 @@
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -190,11 +303,12 @@
 					}
 				],
 				"url": {
-					"raw": "{{url}}galleries/{{galleryID}}",
+					"raw": "{{url}}/galleries/{{galleryID}}",
 					"host": [
-						"{{url}}galleries"
+						"{{url}}"
 					],
 					"path": [
+						"galleries",
 						"{{galleryID}}"
 					]
 				}

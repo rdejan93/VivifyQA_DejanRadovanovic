@@ -11,14 +11,15 @@
         "Images": ".form-control",
         "AddImageBtn": "button",
         "Submit": ".btn",
-        "Alert": ".alert"
+        "Alert": ".alert",
+        "GalleryTitle": ".box-title"
     },
     "Search": {
         "SearchBar": ".form-control",
         "NavBarBtns": ".nav-link",
         "GalleryTitle": ".box-title",
         "Filter": ".btn",
-        "Message": ".container>div>div"
+        "Message": "h4"
     },
     "DeleteImage": {
         "NavBarBtns": ".nav-link",
@@ -32,7 +33,7 @@
         "GalleryTitle": ".box-title",
         "TextArea": ".form-group",
         "Submit": ".btn",
-        "DeleteBtn": ".list-group>.list-group-item>div>button",
+        "DeleteBtn": ".fas",
         "Alert": ".alert",
         "SearchBar": ".form-control",
         "ValidComment": ".list-group-item"
